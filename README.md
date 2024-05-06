@@ -13,7 +13,7 @@ MERN CRUD is a full-stack web application built using the MERN (MongoDB, Express
 
 ## Features
 
-- Create: Users can create new user having a "name", "email", & "age".
+- Create: Users can create new users having a "name", "email", & "age".
 - Read: Users can retrieve all users from the database.
 - Update: Users can update existing "name", "email", & "age" information of any specific _id.
 - Delete: Users can delete the entire data of any specific _id from the database.
