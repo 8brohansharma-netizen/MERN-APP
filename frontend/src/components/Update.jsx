@@ -15,7 +15,7 @@ function Update() {
 
   const getUserData = async () => {
     const response = await fetch(
-      `http://localhost:5000/api/user/userdetails/${id}`,
+      `${process.env.REACT_APP_API_URL}/api/user/userdetails/${id}`,
       {
         method: "GET",
       }
@@ -41,7 +41,7 @@ function Update() {
 
     const addUser = { name, email, age };
     const response = await fetch(
-      `http://localhost:5000/api/user/updateuser/${id}`,
+      `${process.env.REACT_APP_API_URL}/api/user/updateuser/${id}`,
       {
         method: "PATCH",
         body: JSON.stringify(addUser),

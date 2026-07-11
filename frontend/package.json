@@ -1,6 +1,5 @@
 {
   "name": "mern-todo",
-  "homepage": " https://nomanghayyur.github.io/MERN-APP",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

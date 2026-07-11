@@ -14,7 +14,7 @@ function Create() {
     event.preventDefault();
 
     const addUser = { name, email, age };
-    const response = await fetch("http://localhost:5000/api/user/createuser", {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/createuser`, {
       method: "POST",
       body: JSON.stringify(addUser),
       headers: {

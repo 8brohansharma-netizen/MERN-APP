@@ -6,7 +6,7 @@ function Read() {
   const [error, setError] = useState("");
 
   async function getData() {
-    const response = await fetch("http://localhost:5000/api/user/userlist", {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/userlist`, {
       method: "GET",
     });
     const result = await response.json();
@@ -26,7 +26,7 @@ function Read() {
 
   const handleDelete = async (id) => {
     const response = await fetch(
-      `http://localhost:5000/api/user/deleteuser/${id}`,
+      `${process.env.REACT_APP_API_URL}/api/user/deleteuser/${id}`,
       {
         method: "DELETE",
       }
