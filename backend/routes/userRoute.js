@@ -1,6 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const User = require("../models/userModel");
+const protect = require('../middleware/auth');
+
+router.delete("/deleteuser/:id", protect, async (req, res) => {
+  // existing code — this now only runs if a valid token was sent
+});
 const router = express.Router();
 
 //create
