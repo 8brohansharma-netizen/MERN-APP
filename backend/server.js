@@ -1,30 +1,26 @@
 require('dotenv').config();
-const cors = require('cors');
-app.use(cors());
-console.log(process.env.MONGO_URI);
+
 const express = require('express');
-const app = express();
-const mongoose = require('mongoose')
-const dotenv = require('dotenv');
-dotenv.config();
-const cors = require('cors')
+const mongoose = require('mongoose');
+const cors = require('cors');
 const userRoute = require('./routes/userRoute');
 
-app.use(cors());
+const app = express();
+
+app.use(cors({
+  origin: 'https://mern-app-1-e29v.onrender.com'
+}));
 app.use(express.json());
 
-mongoose.connect(process.env.URI).then(() => {
-    console.log("connected successfully");
-
-    app.listen(process.env.PORT || 8000, (error) => {
-        if (error) console.log(error);
-
-        console.log("connected successfully at", process.env.PORT)
-    })
-
-}).catch((error) => {
-    console.error('error', error)
-})
-
-
 app.use('/api/user', userRoute);
+
+mongoose.connect(process.env.URI).then(() => {
+  console.log("connected successfully");
+
+  app.listen(process.env.PORT || 8000, (error) => {
+    if (error) console.log(error);
+    console.log("connected successfully at", process.env.PORT);
+  });
+}).catch((error) => {
+  console.error('error', error);
+});
