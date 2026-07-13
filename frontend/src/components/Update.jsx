@@ -40,6 +40,7 @@ function Update() {
     event.preventDefault();
 
     const addUser = { name, email, age };
+    const token = localStorage.getItem("token");
     const response = await fetch(
       `${process.env.REACT_APP_API_URL}/api/user/updateuser/${id}`,
       {
@@ -47,6 +48,7 @@ function Update() {
         body: JSON.stringify(addUser),
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
       }
     );

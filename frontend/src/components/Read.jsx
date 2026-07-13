@@ -81,7 +81,7 @@ function Read() {
               <td>{item?.age}</td>
               <td>
                 <Link to={`/update/${item?._id}`} className="card-link m-2">Edit</Link>
-                <a href="" className="card-link m-2" onClick={(e) => handleDelete(item?._id, e)}>Delete</a>
+                <button type="button" className="btn btn-link card-link m-2" onClick={(e) => handleDelete(item?._id, e)}>Delete</button>
               </td>
             </tr>
           ))}
