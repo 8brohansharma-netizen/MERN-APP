@@ -24,7 +24,8 @@ function Read() {
     getData();
   }, []);
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (id, event) => {
+    event.preventDefault();
     const token = localStorage.getItem("token");
 
     const response = await fetch(
@@ -80,7 +81,7 @@ function Read() {
               <td>{item?.age}</td>
               <td>
                 <Link to={`/update/${item?._id}`} className="card-link m-2">Edit</Link>
-                <a href="" className="card-link m-2" onClick={() => handleDelete(item?._id)}>Delete</a>
+                <a href="" className="card-link m-2" onClick={(e) => handleDelete(item?._id, e)}>Delete</a>
               </td>
             </tr>
           ))}
