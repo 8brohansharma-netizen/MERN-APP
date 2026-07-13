@@ -9,7 +9,7 @@ const authRoute = require('./routes/authRoutes');
 const app = express();
 
 app.use(cors({
-  origin: 'https://mern-app-1-e29v.onrender.com'
+  origin: ['http://localhost:3000', 'https://mern-app-1-e29v.onrender.com']
 }));
 app.use(express.json());
 

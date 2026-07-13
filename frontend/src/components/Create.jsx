@@ -5,6 +5,7 @@ function Create() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [age, setAge] = useState(0);
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [response, setResponse] = useState("");
 
@@ -13,8 +14,8 @@ function Create() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const addUser = { name, email, age };
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/createuser`, {
+    const addUser = { name, email, age, password };
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/signup`, {
       method: "POST",
       body: JSON.stringify(addUser),
       headers: {
@@ -34,6 +35,7 @@ function Create() {
       setName("");
       setEmail("");
       setAge(0);
+      setPassword("");
       navigate("/userlist");
     }
   };
@@ -84,6 +86,16 @@ function Create() {
             className="form-control"
             value={age}
             onChange={(e) => setAge(e.target.value)}
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Password</label>
+          <input
+            name="password"
+            type="password"
+            className="form-control"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 

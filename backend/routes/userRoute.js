@@ -4,26 +4,6 @@ const User = require("../models/userModel");
 const router = express.Router();
 const protect = require('../middleware/auth');
 
-//create
-router.post("/createuser", async (req, res) => {
-  const { name, email, age } = req.body;
-
-  try {
-    const userAdded = await User.create({
-      name: name,
-      email: email,
-      age: age,
-    });
-
-    res
-      .status(201)
-      .json({ message: "User created successfully", data: userAdded });
-  } catch (error) {
-    console.log(error);
-    res.status(400).json({ error: error.message });
-  }
-});
-
 router.get("/userlist", async (req, res) => {
   try {
     const allUsers = await User.find();
