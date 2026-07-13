@@ -25,10 +25,15 @@ function Read() {
   }, []);
 
   const handleDelete = async (id) => {
+    const token = localStorage.getItem("token");
+
     const response = await fetch(
       `${process.env.REACT_APP_API_URL}/api/user/deleteuser/${id}`,
       {
         method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       }
     );
     const result = await response.json();
@@ -46,8 +51,6 @@ function Read() {
     }
   };
 
-  console.log(data, "data");
-
   return (
     <div className="container my-2">
       {error && (
@@ -58,7 +61,7 @@ function Read() {
 
       <h2 className="text-center">User List</h2>
 
-      <table class="table">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -69,23 +72,15 @@ function Read() {
           </tr>
         </thead>
         <tbody>
-          {data?.map((data) => (
-            <tr key={data._id}>
+          {data?.map((item) => (
+            <tr key={item._id}>
               <th scope="row">1</th>
-              <td>{data?.name}</td>
-              <td>{data?.email}</td>
-              <td>{data?.age}</td>
+              <td>{item?.name}</td>
+              <td>{item?.email}</td>
+              <td>{item?.age}</td>
               <td>
-                <Link to={`/update/${data?._id}`} className="card-link m-2">
-                  Edit
-                </Link>
-                <a
-                  href=""
-                  className="card-link m-2"
-                  onClick={() => handleDelete(data?._id)}
-                >
-                  Delete
-                </a>
+                <Link to={`/update/${item?._id}`} className="card-link m-2">Edit</Link>
+                <a href="" className="card-link m-2" onClick={() => handleDelete(item?._id)}>Delete</a>
               </td>
             </tr>
           ))}

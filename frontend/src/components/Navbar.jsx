@@ -37,6 +37,11 @@ export default function Navbar() {
                 All Post
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to="/login" className="nav-link" aria-current="page">
+                Login
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

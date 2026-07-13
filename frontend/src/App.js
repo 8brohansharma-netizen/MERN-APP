@@ -5,8 +5,8 @@ import Create from './components/Create';
 import Update from './components/Update'
 import Read from './components/Read'
 import Home from './components/Home'
+import Login from './components/Login'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-
 function App() {
   return (
     <div className="App">
@@ -17,10 +17,10 @@ function App() {
           <Route exact path='/create' element={<Create />} />
           <Route exact path='/userlist' element={<Read />} />
           <Route exact path='/update/:id' element={<Update />} />
+          <Route exact path='/login' element={<Login />} />
         </Routes>
       </BrowserRouter>
     </div>
   );
 }
-
 export default App;
