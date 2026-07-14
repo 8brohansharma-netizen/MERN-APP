@@ -41,4 +41,4 @@ yarn-error.log*
 yarn.lock
 
 #prisma
-.dev.db
+.dev.dbtempCodeRunnerFile.js

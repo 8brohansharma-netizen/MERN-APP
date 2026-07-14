@@ -34,6 +34,7 @@ function Update() {
 
   useEffect(() => {
     getUserData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleEdit = async (event) => {
@@ -72,12 +73,12 @@ function Update() {
   return (
     <div className="container my-2">
       {error && (
-        <div class="alert alert-danger" role="alert">
+        <div className="alert alert-danger" role="alert">
           {error}
         </div>
       )}
       {response && (
-        <div class="alert alert-success" role="alert">
+        <div className="alert alert-success" role="alert">
           {response}
         </div>
       )}
